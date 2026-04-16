@@ -3,7 +3,17 @@ const app = express();
 const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3000;
 require("dotenv").config();
+const cors = require("cors");
+const feedbackRoutes = require("./routes/feedback");
 
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// Routes
+app.use("/feedback", feedbackRoutes);
+
+// connect to MongoDB and start the server
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
