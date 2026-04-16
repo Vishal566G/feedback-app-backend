@@ -7,6 +7,7 @@ const feedbackSchema = new mongoose.Schema(
       required: [true, "Please provide your name"],
       trim: true,
       maxlength: [50, "Name cannot be more than 50 characters"],
+      lowercase: true,
     },
     feedback: {
       type: String,
