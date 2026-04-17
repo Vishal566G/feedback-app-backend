@@ -7,7 +7,7 @@ const cors = require("cors");
 const feedbackRoutes = require("./routes/feedback");
 
 // Middleware
-app.use(cors());
+app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
 
 // Routes
